@@ -1,9 +1,6 @@
 #include <MQTT.h>
 #include <MQTT_params.h>
 
-int brilho = 0;
-bool ledLigado = false;
-
 WiFiClient espClient;
 PubSubClient client(espClient);
 
@@ -50,12 +47,12 @@ void callback(char *topic, byte *payload, unsigned int length)
     {
         if (msg.equalsIgnoreCase("ON"))
         {
-            ledLigado = true;
-            ledcWrite(LED_CHANNEL, brilho);
+            ledState = true;
+            ledcWrite(LED_CHANNEL, counter);
         }
         else if (msg.equalsIgnoreCase("OFF"))
         {
-            ledLigado = false;
+            ledState = false;
             ledcWrite(LED_CHANNEL, 0);
         }
     }
@@ -65,10 +62,10 @@ void callback(char *topic, byte *payload, unsigned int length)
         int valor = msg.toInt();
         if (valor >= 0 && valor <= 255)
         {
-            brilho = valor;
-            if (ledLigado)
+            counter = valor;
+            if (ledState)
             {
-                ledcWrite(LED_CHANNEL, brilho);
+                ledcWrite(LED_CHANNEL, counter);
             }
         }
     }

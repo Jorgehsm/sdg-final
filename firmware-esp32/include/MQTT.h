@@ -4,6 +4,8 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <Config.h>
+#include <stdint.h>
+#include <Encoder.h>
 
 void setup_wifi();
 void callback(char* topic, byte* payload, unsigned int length);

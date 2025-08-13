@@ -3,5 +3,11 @@
 
 #include <Config.h>
 #include <Arduino.h>
+#include <stdint.h>
+
+void encoderISR();
+
+extern volatile uint8_t counter;
+volatile bool ledState;
 
 #endif
