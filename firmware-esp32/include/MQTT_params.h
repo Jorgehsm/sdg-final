@@ -1,11 +1,11 @@
 #ifndef MQTT_PARAMS
 #define MQTT_PARAMS
 
-const char* ssid = "SUA_REDE_WIFI";
-const char* password = "SUA_SENHA_WIFI";
+const char* ssid = "ubuntu_jhsm";
+const char* password = "12345678";
 
-const char* mqtt_server = "192.168.68.10";
-const char* topic_onoff = "/meu_led/onoff";
-const char* topic_brilho = "/meu_led/brilho";
+const char* mqtt_server = "10.42.0.1";
+const char* topic_onoff = "/toggle";
+const char* topic_brilho = "/brilho";
 
 #endif

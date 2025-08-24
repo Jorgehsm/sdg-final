@@ -1,4 +1,4 @@
-#include <Encoder.h>
+#include <encoder.h>
 
 volatile uint8_t counter = 0;
 volatile bool ledState = false;

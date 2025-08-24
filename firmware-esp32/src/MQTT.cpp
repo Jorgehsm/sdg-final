@@ -48,12 +48,10 @@ void callback(char *topic, byte *payload, unsigned int length)
         if (msg.equalsIgnoreCase("ON"))
         {
             ledState = true;
-            ledcWrite(LED_CHANNEL, counter);
         }
         else if (msg.equalsIgnoreCase("OFF"))
         {
             ledState = false;
-            ledcWrite(LED_CHANNEL, 0);
         }
     }
 
@@ -63,10 +61,6 @@ void callback(char *topic, byte *payload, unsigned int length)
         if (valor >= 0 && valor <= 255)
         {
             counter = valor;
-            if (ledState)
-            {
-                ledcWrite(LED_CHANNEL, counter);
-            }
         }
     }
 }

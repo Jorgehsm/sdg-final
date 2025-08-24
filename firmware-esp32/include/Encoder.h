@@ -8,6 +8,6 @@
 void encoderISR();
 
 extern volatile uint8_t counter;
-volatile bool ledState;
+extern volatile bool ledState;
 
 #endif
