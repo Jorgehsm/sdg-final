@@ -8,11 +8,16 @@ void mqtt_connect()
 {
     client.setServer(mqtt_server, 1883);
     client.setCallback(callback);
+    pubState();
+    pubBrilho();
 }
 
 void setup_wifi()
 {
     delay(10);
+
+    WiFi.config(staticIP, gateway, subnet);
+
     Serial.println();
     Serial.print("Conectando-se a ");
     Serial.println(ssid);
@@ -22,11 +27,14 @@ void setup_wifi()
     {
         delay(500);
         Serial.print(".");
+        bool blink = !blink;
+        digitalWrite(LED_PIN, blink);
     }
 
     Serial.println("\nWiFi conectado");
     Serial.println("IP: ");
     Serial.println(WiFi.localIP());
+    digitalWrite(LED_PIN, LOW);
 }
 
 void callback(char *topic, byte *payload, unsigned int length)
@@ -45,11 +53,11 @@ void callback(char *topic, byte *payload, unsigned int length)
 
     if (String(topic) == topic_onoff)
     {
-        if (msg.equalsIgnoreCase("ON"))
+        if (msg.toInt() == 1)
         {
             ledState = true;
         }
-        else if (msg.equalsIgnoreCase("OFF"))
+        else if (msg.toInt() == 0)
         {
             ledState = false;
         }
@@ -84,4 +92,15 @@ void reconnect()
             delay(5000);
         }
     }
+}
+
+void pubState()
+{
+    // Publica o novo estado para manter a sincronização
+    client.publish(topic_onoff, String(ledState).c_str());
+}
+
+void pubBrilho()
+{
+    client.publish("update", String(counter).c_str());
 }

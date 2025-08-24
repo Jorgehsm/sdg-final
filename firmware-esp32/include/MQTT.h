@@ -11,6 +11,8 @@ void setup_wifi();
 void callback(char* topic, byte* payload, unsigned int length);
 void reconnect();
 void mqtt_connect();
+void pubState();
+void pubBrilho();
 
 //extern WiFiClient espClient;
 extern PubSubClient client;

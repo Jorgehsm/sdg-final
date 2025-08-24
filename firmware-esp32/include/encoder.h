@@ -1,13 +1,15 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
-#include <Config.h>
+#include <config.h>
 #include <Arduino.h>
 #include <stdint.h>
 
 void encoderISR();
+void encSwitch();
+void encoderSetup();
 
-extern volatile uint8_t counter;
+extern volatile uint16_t counter;
 extern volatile bool ledState;
 
 #endif
