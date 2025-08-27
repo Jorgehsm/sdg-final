@@ -45,6 +45,14 @@ O dispositivo consiste em um **ESP32-C3 Supermini** que controla o brilho de uma
   - `brilho` → controla duty cycle (0–255)  
 
 ---
+#     Protoboard e resultado final
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/416bcfc9-3e4c-4d5c-9a4d-5d09253b523a" alt="Imagem 1" width="848" height="606"/>
+  <img src="https://github.com/user-attachments/assets/f7b8dcc7-d59a-44d1-8ae3-8b9ada1bedd9" alt="Resultado final" width="848" height="606"/>
+</p>
+
+---
 
 ## 🔧 Programação da ESP32-C3 Supermini
 > ⚠️ Importante: a placa **não possui conversor USB** integrado.  
